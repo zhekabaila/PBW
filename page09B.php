@@ -8,7 +8,13 @@ if (!isset($_SESSION['username'])) {
 }
 
 include 'dbcon.php';
+
 $query = "SELECT * FROM peminjam";
+
+if (!empty($_GET['search'])) {
+    $query = "SELECT * FROM peminjam WHERE nama LIKE '%" . $_GET['search'] . "%'";
+}
+
 $result = $pdo->query($query);
 ?>
 
@@ -53,6 +59,22 @@ $result = $pdo->query($query);
     </header>
 
     <main style="overflow-x: scroll;">
+        <form action="" method="GET">
+            <label for="txt1" style="font-weight: 500;">Cari Nama: </label>
+            <div style="display: flex; align-items: center;">
+                <input type="text" name="search" value="<?= $_GET['search'] ?? '' ?>" id="txt1" onkeyup="showHint(this.value)" autocomplete="off" autofocus required>
+                <button type="submit">Cari</button>
+            </div>
+            <div style="width: 100%; max-width: 1200px; margin: 24px auto;">
+                <p style="color: white; font-size: 18px; font-weight: bold; margin-bottom: 24px;">
+                    Suggestions:
+                </p>
+                <ul id="txtHint" style="color: white; font-size: 16px; font-weight: semibold; list-style-type: none;">
+
+                </ul>
+            </div>
+        </form>
+
         <table class="peminjam">
             <thead>
                 <tr>
@@ -64,7 +86,7 @@ $result = $pdo->query($query);
             </thead>
             <tbody>
                 <?php
-                if ($result) {
+                if ($result->rowCount() > 0) {
                     foreach ($result as $row) { ?>
                         <tr>
                             <td><?php echo $row["id"]; ?></td>
@@ -79,7 +101,7 @@ $result = $pdo->query($query);
                         </tr>
                 <?php   }
                 } else {
-                    echo "<tr><td colspan='4'>Tidak ada data peminjam</td></tr>";
+                    echo "<tr><td colspan='4' style='text-align: center; color: red;'>Tidak ada data peminjam</td></tr>";
                 }
                 ?>
                 <tr>
@@ -100,6 +122,7 @@ $result = $pdo->query($query);
         }
     </script>
     <script src="./navbarMenu.js"></script>
+    <script src="page11A_suggestion.js"></script>
 </body>
 
 </html>

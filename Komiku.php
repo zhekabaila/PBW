@@ -53,7 +53,7 @@ if (!isset($_SESSION['username'])) {
 
     <main style="margin-top: 0;">
         <section class="daftar-komik">
-            <div class="komik">
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/hai-miiko-35-edisi-khusus-bonus-cardholder');" style="cursor: pointer;">
                 <img src="./img/Komik_Miiko.jpg" alt="Miiko" />
                 <p style="color: grey">Miiko</p>
                 <div class="stars">
@@ -64,7 +64,7 @@ if (!isset($_SESSION['username'])) {
                     <i class="material-icons">star_half</i>
                 </div>
             </div>
-            <div class="komik">
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/naruto-01');" style="cursor: pointer;">
                 <img src="./img/Komik_Naruto.jpg" alt="Naruto">
                 <p style="color: grey">Naruto</p>
                 <div class="stars">
@@ -75,7 +75,7 @@ if (!isset($_SESSION['username'])) {
                     <i class="material-icons">star_half</i>
                 </div>
             </div>
-            <div class="komik">
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/detektif-conan-98');" style="cursor: pointer;">
                 <img src="./img/Komik_Konan.jpg" alt="Detective Conan">
                 <p style="color: grey">Detective Conan</p>
                 <div class="stars">
@@ -86,7 +86,7 @@ if (!isset($_SESSION['username'])) {
                     <i class="material-icons">star_half</i>
                 </div>
             </div>
-            <div class="komik">
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/si-juki-komik-strip');" style="cursor: pointer;">
                 <img src="./img/Komik_Sijuki.jpeg" alt="Si Juki">
                 <p style="color: grey">Si Juki</p>
                 <div class="stars">
@@ -97,7 +97,7 @@ if (!isset($_SESSION['username'])) {
                     <i class="material-icons">star_half</i>
                 </div>
             </div>
-            <div class="komik">
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/doraemon-10-edisi-baru');" style="cursor: pointer;">
                 <img src="./img/Komik_Doraemon.jpg" alt="Doraemon">
                 <p style="color: grey">Doraemon</p>
                 <div class="stars">
@@ -116,6 +116,12 @@ if (!isset($_SESSION['username'])) {
         <p style="color: white;">Created by Shafnanda Aulia Kamal (222212878@stis.ac.id)</p>
     </footer>
     <script src="./navbarMenu.js"></script>
+    <script>
+        function openInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+    </script>
 </body>
 
 </html>

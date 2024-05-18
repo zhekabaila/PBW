@@ -26,7 +26,7 @@ if (isset($_SESSION['username'])) {
 <body>
     <header>
         <div>
-            <h1 style="font-family: Irish Grover;">KOMIKU READER</h1>
+            <h1 style="font-family: Irish Grover; color: white;">KOMIKU READER</h1>
             <button type="button" id="burger-menu" style="padding: 0; background-color: transparent;">
                 <img src="./HiMenu.svg" alt="" style="width: 26px;">
             </button>
