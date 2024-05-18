@@ -7,15 +7,6 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-include 'dbcon.php';
-
-$query = "SELECT * FROM peminjam";
-
-if (!empty($_GET['search'])) {
-    $query = "SELECT * FROM peminjam WHERE nama LIKE '%" . $_GET['search'] . "%'";
-}
-
-$result = $pdo->query($query);
 ?>
 
 <!DOCTYPE html>
@@ -62,16 +53,7 @@ $result = $pdo->query($query);
         <form action="" method="GET">
             <label for="txt1" style="font-weight: 500;">Cari Nama: </label>
             <div style="display: flex; align-items: center;">
-                <input type="text" name="search" value="<?= $_GET['search'] ?? '' ?>" id="txt1" onkeyup="showHint(this.value)" autocomplete="off" autofocus required>
-                <button type="submit">Cari</button>
-            </div>
-            <div style="width: 100%; max-width: 1200px; margin: 24px auto;">
-                <p style="color: white; font-size: 18px; font-weight: bold; margin-bottom: 24px;">
-                    Suggestions:
-                </p>
-                <ul id="txtHint" style="color: white; font-size: 16px; font-weight: semibold; list-style-type: none;">
-
-                </ul>
+                <input type="text" name="search" id="txt1" onkeyup="showHint(this.value)" autocomplete="off" autofocus required>
             </div>
         </form>
 
@@ -84,32 +66,8 @@ $result = $pdo->query($query);
                     <th>Aksi</th>
                 </tr>
             </thead>
-            <tbody>
-                <?php
-                if ($result->rowCount() > 0) {
-                    foreach ($result as $row) { ?>
-                        <tr>
-                            <td><?php echo $row["id"]; ?></td>
-                            <td><?php echo $row["nama"]; ?></td>
-                            <td><?php echo $row["email"]; ?></td>
-                            <td>
-                                <div style="display: flex; justify-content: center; align-items: center; gap: 12px; height: 100%;">
-                                    <a href='page09E.php?id=<?php echo $row["id"]; ?>&nama=<?php echo $row["nama"]; ?>&email=<?php echo $row["email"]; ?>'><img src='edit-icon.png' style='width:30px;height:30px;'></a>
-                                    <a href='page09F.php?id=<?php echo $row["id"]; ?>' onclick='return confirmDelete()'><img src='delete-icon.png' style='width:30px;height:30px;'></a>
-                                </div>
-                            </td>
-                        </tr>
-                <?php   }
-                } else {
-                    echo "<tr><td colspan='4' style='text-align: center; color: red;'>Tidak ada data peminjam</td></tr>";
-                }
-                ?>
-                <tr>
-                    <td colspan="4">
-                        <button onclick="window.location.href='page09D.php'">Tambah Peminjam</button>
-                    </td>
-                </tr>
-            </tbody>
+
+            <tbody id="tbody"></tbody>
         </table>
     </main>
     <footer>

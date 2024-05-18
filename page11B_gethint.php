@@ -1,10 +1,17 @@
 <?php
+
 include './dbcon.php';
 
 try {
-    $keyword = $_GET["keyword"];
-    $stmt = $pdo->prepare("SELECT nama FROM peminjam WHERE nama LIKE ?");
-    $stmt->execute(["%$keyword%"]);
+    if (!empty($_GET["keyword"])) {
+        $keyword = $_GET["keyword"];
+
+        $stmt = $pdo->prepare("SELECT * FROM peminjam WHERE nama LIKE ?");
+        $stmt->execute(["%$keyword%"]);
+    } else {
+        $stmt = $pdo->prepare("SELECT * FROM peminjam");
+        $stmt->execute();
+    }
 
     $hints = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -14,7 +21,9 @@ try {
 
         foreach ($hints as $hint) {
             $response[] = [
-                'nama' => $hint['nama']
+                'id' => $hint['id'],
+                'nama' => $hint['nama'],
+                'email' => $hint['email']
             ];
         }
 
@@ -24,7 +33,9 @@ try {
     } else { // Output "no suggestion" if no hint was found or output
         // correct values
         $response[] = [
-            'nama' => 'no suggestion'
+            'id' => null,
+            'nama' => null,
+            'email' => null,
         ];
 
         header('Content-type: application/json');
