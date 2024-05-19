@@ -9,6 +9,7 @@
     }
 
     include 'dbcon.php';
+
     $query = "SELECT * FROM komik";
     $result = $pdo->query($query);
     ?>
@@ -52,7 +53,16 @@
             </nav>
         </header>
 
+
+
         <main style="overflow-x: scroll;">
+            <form action="" method="GET">
+                <label for="txt1" style="font-weight: 500;"></label>
+                <div class="search-container">
+                    <input type="text" id="txt1" placeholder="Search.." onkeyup="showHint(this.value)" autocomplete="off" autofocus required>
+                </div>
+            </form>
+
             <table class="buku">
                 <thead>
                     <tr>
@@ -63,39 +73,14 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
-                    if ($result) {
-                        foreach ($result as $row) { ?>
-                            <tr>
-                                <td><?= $row["id"]; ?></td>
-                                <td><?= $row["judul"]; ?></td>
-                                <td><img src="./img/<?= $row["sampul"]; ?>" alt="Sampul"></td>
-                                <td><a href="<?= $row["pratinjau"]; ?>" target="_blank">Pratinjau</a></td>
-                                <td>
-                                    <div style="display: flex; justify-content: center; align-items: center; gap: 12px; height: 100%;">
-                                        <a href='page09G.php?id=<?= $row["id"]; ?>'>
-                                            <img src='edit-icon.png' style='width:30px;height:30px;' />
-                                        </a>
-
-                                        <a href='page09H.php?id=<?= $row["id"]; ?>' onclick='return confirmDelete()'>
-                                            <img src='delete-icon.png' style='width:30px;height:30px;' />
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                    <?php   }
-                    } else {
-                        echo "<tr><td colspan='3'>Tidak ada komik tersedia</td></tr>";
-                    }
-                    ?>
-                    <tr>
-                        <td colspan="5">
-                            <button onclick="window.location.href='page09C.php'">Tambah Komik</button>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="tbody"></tbody>
+                <tr>
+                    <td colspan="5">
+                        <button onclick="window.location.href='page09C.php'">Tambah Komik</button>
+                    </td>
+                </tr>
             </table>
+
         </main>
         <footer>
             <p style="color: white;">Copyright &copy; 2024 Politeknik Statistika STIS</p>
@@ -107,6 +92,7 @@
             }
         </script>
         <script src="./navbarMenu.js"></script>
+        <script src="./pageKomik_suggestion.js"></script>
     </body>
 
     </html>

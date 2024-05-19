@@ -82,42 +82,53 @@ function validate06D() {
   return true
 }
 
-function validateLoginForm(username, password) {
-  var errors = []
+function validateLoginForm() {
+  var username = document.getElementById('username').value
+  var password = document.getElementById('password').value
+
+  var errorMessage = ''
 
   if (!username.trim()) {
-    errors.push('Username tidak boleh kosong')
+    errorMessage += 'Username tidak boleh kosong.\n'
   } else if (!/^[a-zA-Z0-9]+$/.test(username)) {
-    errors.push('Username hanya boleh berisi huruf dan angka')
+    errorMessage += 'Username hanya boleh berisi huruf dan angka.\n'
   }
 
   if (!password.trim()) {
-    errors.push('Password tidak boleh kosong')
+    errorMessage += 'Password tidak boleh kosong.\n'
   } else if (password.trim().length > 8) {
-    errors.push('Password tidak boleh lebih dari 8 karakter')
+    errorMessage += 'Password tidak boleh lebih dari 8 karakter.\n'
   }
 
-  return errors
-}
-
-function validateLogoutForm(username, password) {
-  var errors = []
-
-  if (!username.trim()) {
-    errors.push('Username tidak boleh kosong')
-  } else if (!/^[a-zA-Z0-9]+$/.test(username)) {
-    errors.push('Username hanya boleh berisi huruf dan angka')
+  if (errorMessage) {
+    alert(errorMessage)
+    return false
   }
 
-  if (!password.trim()) {
-    errors.push('Password tidak boleh kosong')
-  } else if (password.trim().length > 8) {
-    errors.push('Password tidak boleh lebih dari 8 karakter')
-  }
-
-  return errors
+  return true
 }
 
 function validateEmail(email) {
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+}
+
+function validateRegist() {
+  var username = document.forms['registrationForm']['username'].value
+  var password = document.forms['registrationForm']['password'].value
+  var errorMessage = ''
+
+  if (username == '') {
+    errorMessage += 'Username harus diisi.\n'
+  }
+
+  if (password == '') {
+    errorMessage += 'Password harus diisi.\n'
+  }
+
+  if (errorMessage) {
+    alert(errorMessage)
+    return false
+  }
+
+  return true
 }

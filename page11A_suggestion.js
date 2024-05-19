@@ -14,12 +14,16 @@ function showHint(value) {
   }
 
   //Code 4b
-  xhttp.open('GET', `./page11B_gethint.php?keyword=${value}`)
+  let route =
+    value && value !== ''
+      ? `./page11B_gethint.php?keyword=${value}`
+      : `./page11B_gethint.php`
+
+  xhttp.open('GET', route, true)
   xhttp.send()
 }
 
-// Jalankan fungsi showHint untuk menampilkan nilai awal pada table
-showHint(null)
+showHint()
 
 function renderRow(id, nama, email) {
   if (id === null) {

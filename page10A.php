@@ -2,7 +2,7 @@
 
 session_start();
 
-if (isset($_SESSION['username'])) {
+if (!empty($_SESSION['username']) && !empty($_COOKIE['username'])) {
     header("Location: Komiku.php");
     exit;
 }
@@ -55,13 +55,23 @@ if (isset($_SESSION['username'])) {
             </div>
             <form action="page10A_action.php" method="post" onsubmit="return validateLoginForm()">
                 <label>Username:</label>
-                <input type="text" name="username">
+                <input type="text" name="username" id="username">
 
                 <label>Password:</label>
-                <input type="password" class="input-pw" name="password" autocomplete="off">
+                <input type="password" class="input-pw" name="password" id="password" autocomplete="off">
+
+                <div class="remember">
+                    <label>Remember me</label>
+                    <input type="checkbox" name="remember" id="remember" style="width: auto; padding: 0;">
+                </div>
 
                 <div style="display: flex; margin-top: 14px;">
                     <button type="submit">Login</button>
+                </div>
+            </form>
+            <form action="registration.php" method="post">
+                <div style="display: flex; margin-top: 14px;">
+                    <button type="submit">Belum punya akun</button>
                 </div>
             </form>
         </div>
@@ -71,6 +81,7 @@ if (isset($_SESSION['username'])) {
         <p style="color: white;">Created by Shafnanda Aulia Kamal (222212878@stis.ac.id)</p>
     </footer>
     <script src="./navbarMenu.js"></script>
+    <script src="./validasiForm.js"></script>
 </body>
 
 </html>

@@ -95,9 +95,15 @@ section.daftar-komik {
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  padding: 40px;
-  margin-top: 80px;
+  padding: 10px;
+  margin-top: 20px;
   color: whitesmoke;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 aside {
@@ -288,12 +294,11 @@ form label {
 .komik {
   width: 100%;
   margin: 0 auto;
-  max-width: 300px;
+  max-width: 200px;
   text-align: center;
-  margin-bottom: 20px;
-
+  margin-bottom: 10px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
   transition: transform 0.5s ease-in-out;
 }
@@ -328,13 +333,14 @@ form label {
 
 #pesanError {
   display: none;
-  color: red; /* Warna teks merah */
-  padding: 0; /* Padding atas dan bawah 5px, kiri dan kanan 10px */
-  border-radius: 5px; /* Border-radius */
+  color: red;
+  padding: 0;
+  border-radius: 5px;
 }
 
 .material-icons {
   color: gold;
+  margin-top: 5px;
 }
 
 .invisible-button {

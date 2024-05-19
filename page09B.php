@@ -51,9 +51,9 @@ if (!isset($_SESSION['username'])) {
 
     <main style="overflow-x: scroll;">
         <form action="" method="GET">
-            <label for="txt1" style="font-weight: 500;">Cari Nama: </label>
-            <div style="display: flex; align-items: center;">
-                <input type="text" name="search" id="txt1" onkeyup="showHint(this.value)" autocomplete="off" autofocus required>
+            <label for="txt1" style="font-weight: 500;"></label>
+            <div class="search-container">
+                <input type="text" id="txt1" placeholder="Search.." onkeyup="showHint(this.value)" autocomplete="off" autofocus required>
             </div>
         </form>
 
@@ -66,8 +66,12 @@ if (!isset($_SESSION['username'])) {
                     <th>Aksi</th>
                 </tr>
             </thead>
-
             <tbody id="tbody"></tbody>
+            <tr>
+                <td colspan="5">
+                    <button onclick="window.location.href='page09D.php'">Tambah Peminjam</button>
+                </td>
+            </tr>
         </table>
     </main>
     <footer>
@@ -80,7 +84,7 @@ if (!isset($_SESSION['username'])) {
         }
     </script>
     <script src="./navbarMenu.js"></script>
-    <script src="page11A_suggestion.js"></script>
+    <script src="./page11A_suggestion.js"></script>
 </body>
 
 </html>

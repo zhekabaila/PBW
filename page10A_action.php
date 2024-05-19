@@ -15,8 +15,14 @@ try {
     if ($stmt->rowCount() > 0) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($password === $user['password']) {
+        if (password_verify($password, $user['password'])) {
             $_SESSION['username'] = $username;
+
+            if (isset($_POST['remember'])) {
+                setcookie('username', $username, time() + 60);
+                setcookie('password', $password, time() + 60);
+            }
+
             header('Location: Komiku.php', true);
             exit;
         } else {

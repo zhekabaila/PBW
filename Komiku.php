@@ -35,7 +35,7 @@ if (!isset($_SESSION['username'])) {
             <button type="button" id="burger-menu" style="padding: 0; background-color: transparent;">
                 <img src="./HiMenu.svg" alt="" style="width: 26px;">
             </button>
-            <button type="button" id="close-menu" style="display: none; padding: 0; background-color: transparent;"">
+            <button type="button" id="close-menu" style="display: none; padding: 0; background-color: transparent;">
                 <img src=" ./HiOutlineX.svg" alt="" style="width: 26px;">
             </button>
         </div>
@@ -46,11 +46,11 @@ if (!isset($_SESSION['username'])) {
                 <li><a href="page09B.php">Daftar Peminjam</a></li>
                 <li><a href="page09D.php">Tambah Peminjam</a></li>
                 <li><a href="page09C.php">Tambah Komik</a></li>
-                <li class="large-only"><a href="page09C.php">Logout</a></li>
+                <li class="large-only"><a href="page10B.php">Logout</a></li>
             </ul>
         </nav>
     </header>
-
+    
     <main style="margin-top: 0;">
         <section class="daftar-komik">
             <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/hai-miiko-35-edisi-khusus-bonus-cardholder');" style="cursor: pointer;">
@@ -78,6 +78,83 @@ if (!isset($_SESSION['username'])) {
             <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/detektif-conan-98');" style="cursor: pointer;">
                 <img src="./img/Komik_Konan.jpg" alt="Detective Conan">
                 <p style="color: grey">Detective Conan</p>
+                <div class="stars">
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star_half</i>
+                </div>
+            </div>
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/si-juki-komik-strip');" style="cursor: pointer;">
+                <img src="./img/Komik_Sijuki.jpeg" alt="Si Juki">
+                <p style="color: grey">Si Juki</p>
+                <div class="stars">
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star_half</i>
+                </div>
+            </div>
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/doraemon-10-edisi-baru');" style="cursor: pointer;">
+                <img src="./img/Komik_Doraemon.jpg" alt="Doraemon">
+                <p style="color: grey">Doraemon</p>
+                <div class="stars">
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star_half</i>
+                </div>
+            </div>
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/hai-miiko-35-edisi-khusus-bonus-cardholder');" style="cursor: pointer;">
+                <img src="./img/Komik_Miiko.jpg" alt="Miiko" />
+                <p style="color: grey">Miiko</p>
+                <div class="stars">
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star_half</i>
+                </div>
+            </div>
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/naruto-01');" style="cursor: pointer;">
+                <img src="./img/Komik_Naruto.jpg" alt="Naruto">
+                <p style="color: grey">Naruto</p>
+                <div class="stars">
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star_half</i>
+                </div>
+            </div>
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/detektif-conan-98');" style="cursor: pointer;">
+                <img src="./img/Komik_Konan.jpg" alt="Detective Conan">
+                <p style="color: grey">Detective Conan</p>
+                <div class="stars">
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star_half</i>
+                </div>
+            </div>
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/si-juki-komik-strip');" style="cursor: pointer;">
+                <img src="./img/Komik_Sijuki.jpeg" alt="Si Juki">
+                <p style="color: grey">Si Juki</p>
+                <div class="stars">
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star_half</i>
+                </div>
+            </div>
+            <div class="komik" onclick="openInNewTab('https://www.gramedia.com/products/doraemon-10-edisi-baru');" style="cursor: pointer;">
+                <img src="./img/Komik_Doraemon.jpg" alt="Doraemon">
+                <p style="color: grey">Doraemon</p>
                 <div class="stars">
                     <i class="material-icons">star</i>
                     <i class="material-icons">star</i>
