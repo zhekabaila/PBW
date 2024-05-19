@@ -30,7 +30,12 @@ if (!isset($_SESSION['username'])) {
         <div>
             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                 <a href="#" class="invisible-button">Logout</a>
-                <h1 style="font-family: Irish Grover;">KOMIKU READER</h1>
+                <h1 style="display: flex; align-items: center; gap: 12px;">
+                    <img src="./icon.png" alt="" style="width: 80px; height: 80px;">
+                    <span style="font-family: Irish Grover;">
+                        KOMIKU READER
+                    </span>
+                </h1>
                 <a href="page10B.php" class="visible-button">Logout</a>
             </div>
             <button type="button" id="burger-menu" style="padding: 0; background-color: transparent;">
@@ -52,7 +57,7 @@ if (!isset($_SESSION['username'])) {
         </nav>
     </header>
 
-    <main style="margin-top: 200px; padding: 0 100px 200px 200px;">
+    <main class="beranda-main">
         <section id="latest-update">
             <h2 style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 24px;">Komik Terbaru</h2>
             <div class="swiper mySwiper">

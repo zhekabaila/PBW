@@ -27,7 +27,12 @@ include 'dbcon.php';
         <div>
             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                 <a href="#" class="invisible-button">Logout</a>
-                <h1 style="font-family: Irish Grover;">KOMIKU READER</h1>
+                <h1 style="display: flex; align-items: center; gap: 12px;">
+                    <img src="./icon.png" alt="" style="width: 80px; height: 80px;">
+                    <span style="font-family: Irish Grover;">
+                        KOMIKU READER
+                    </span>
+                </h1>
                 <a href="page10B.php" class="visible-button">Logout</a>
             </div>
             <button type="button" id="burger-menu" style="padding: 0; background-color: transparent;">

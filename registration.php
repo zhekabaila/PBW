@@ -19,7 +19,12 @@ session_start();
 <body>
     <header>
         <div>
-            <h1 style="font-family: Irish Grover; color: white;">KOMIKU READER</h1>
+            <h1 style="display: flex; align-items: center; gap: 12px;">
+                <img src="./icon.png" alt="" style="width: 80px; height: 80px;">
+                <span style="font-family: Irish Grover; color: white;">
+                    KOMIKU READER
+                </span>
+            </h1>
             <button type="button" id="burger-menu" style="padding: 0; background-color: transparent;">
                 <img src="./HiMenu.svg" alt="" style="width: 26px;">
             </button>
