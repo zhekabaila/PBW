@@ -1,43 +1,60 @@
 // Function to validate form submission for Page06C
 function validate06C() {
-  var nomor = document.getElementById('nomor').value.trim()
+  var nomor = document.getElementById('nomor')?.value.trim() || '' // Make sure this field exists if used
   var judul = document.getElementById('judul').value.trim()
+  var pratinjau = document.getElementById('pratinjau').value.trim()
 
   var errorNomor = document.getElementById('errorNomor')
   var errorJudul = document.getElementById('errorJudul')
+  var pesanError = document.getElementById('pesanError')
 
   errorNomor.innerText = ''
   errorNomor.style.display = 'none'
   errorJudul.innerText = ''
   errorJudul.style.display = 'none'
+  pesanError.innerText = ''
+  pesanError.style.display = 'none'
 
   if (nomor === '') {
-    document.getElementById('pesanError').innerText = 'Nomor tidak boleh kosong'
-    document.getElementById('pesanError').style.display = 'block'
+    pesanError.innerText = 'Nomor tidak boleh kosong'
+    pesanError.style.display = 'block'
     return false
   }
 
   if (isNaN(nomor)) {
-    document.getElementById('pesanError').innerText =
-      'Nomor hanya boleh berisi angka'
-    document.getElementById('pesanError').style.display = 'block'
+    pesanError.innerText = 'Nomor hanya boleh berisi angka'
+    pesanError.style.display = 'block'
     return false
   }
 
   if (judul === '') {
-    document.getElementById('pesanError').innerText = 'Judul tidak boleh kosong'
-    document.getElementById('pesanError').style.display = 'block'
+    pesanError.innerText = 'Judul tidak boleh kosong'
+    pesanError.style.display = 'block'
     return false
   }
 
   if (!/^[a-zA-Z0-9\s]+$/.test(judul)) {
-    document.getElementById('pesanError').innerText =
-      'Terdapat karakter yang tidak valid pada judul'
-    document.getElementById('pesanError').style.display = 'block'
+    pesanError.innerText = 'Terdapat karakter yang tidak valid pada judul'
+    pesanError.style.display = 'block'
+    return false
+  }
+
+  if (pratinjau !== '' && !validateURL(pratinjau)) {
+    pesanError.innerText = 'URL pratinjau tidak valid'
+    pesanError.style.display = 'block'
     return false
   }
 
   return true
+}
+
+function validateURL(url) {
+  try {
+    new URL(url)
+    return true
+  } catch (e) {
+    return false
+  }
 }
 
 function validate06D() {
@@ -90,13 +107,17 @@ function validateLoginForm() {
 
   if (!username.trim()) {
     errorMessage += 'Username tidak boleh kosong.\n'
-  } else if (!/^[a-zA-Z0-9]+$/.test(username)) {
+  }
+
+  if (!/^[a-zA-Z0-9]+$/.test(username)) {
     errorMessage += 'Username hanya boleh berisi huruf dan angka.\n'
   }
 
   if (!password.trim()) {
     errorMessage += 'Password tidak boleh kosong.\n'
-  } else if (password.trim().length > 8) {
+  }
+
+  if (password.trim().length > 8) {
     errorMessage += 'Password tidak boleh lebih dari 8 karakter.\n'
   }
 

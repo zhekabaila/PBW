@@ -3,7 +3,6 @@ include 'dbcon.php';
 
 if (isset($_FILES['sampul'])) {
     try {
-        $id = $_POST['nomor'];
         $judul = $_POST['judul'];
         $namaFile = uniqid() . '_' . $_FILES['sampul']['name'];
         $lokasiSementara = $_FILES['sampul']['tmp_name'];
@@ -15,9 +14,8 @@ if (isset($_FILES['sampul'])) {
         // Pindahkan file dari lokasi sementara ke direktori upload
         if (move_uploaded_file($lokasiSementara, $dirUpload . $namaFile)) {
             // Jika pengunggahan berhasil, masukkan data ke database
-            $sql = "INSERT INTO komik (id, judul, sampul, pratinjau) VALUES (:id, :judul, :sampul, :pratinjau)";
+            $sql = "INSERT INTO komik (judul, sampul, pratinjau) VALUES (:judul, :sampul, :pratinjau)";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':id', $id);
             $stmt->bindParam(':judul', $judul);
             $stmt->bindParam(':sampul', $namaFile);
             $stmt->bindParam(':pratinjau', $pratinjau);

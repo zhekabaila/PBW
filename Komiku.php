@@ -408,7 +408,13 @@ if (!isset($_SESSION['username'])) {
     <script>
         var swiper = new Swiper(".swiper", {
             slidesPerView: 'auto',
+            loop: true,
+            grabCursor: true,
             spaceBetween: 30,
+            autoplay: {
+                delay: 4500,
+                disableOnInteraction: true,
+            },
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",

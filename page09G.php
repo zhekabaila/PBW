@@ -61,9 +61,7 @@ $result = $pdo->query("SELECT * FROM komik WHERE id = $id")->fetch(PDO::FETCH_AS
             <form action="page09G_action.php" method="POST" name="formTambahKomik" onsubmit="return validate06C()" enctype="multipart/form-data">
                 <input type="hidden" value="<?= $result['sampul'] ?>" name="old_image">
 
-                <label for="nomor">ID:</label>
-                <input type="text" id="id" name="id" value="<?= $result['id'] ?>" readonly><br />
-                <span id="errorNomor" class="errorMessage"></span>
+                <input type="hidden" name="id" value="<?= $result['id'] ?>">
 
                 <label for="judul">Judul:</label>
                 <input type="text" id="judul" name="judul" value="<?= $result['judul'] ?>"><br />

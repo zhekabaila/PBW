@@ -59,8 +59,7 @@ if (!isset($_SESSION['username'])) {
         <div id="container" class="registrasi">
             <p id="pesanError"></p>
             <form action="page09E_action.php" method="POST" name="formTambahPeminjam" onSubmit="return validate06D()">
-                <label for="id">ID:</label>
-                <input type="text" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : ''; ?>" readonly><br />
+                <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
 
                 <label for="nama">Nama:</label>
                 <input type="text" id="nama" name="nama" value="<?= isset($_GET['nama']) ? $_GET['nama'] : ''; ?>"><br />

@@ -58,10 +58,6 @@ include 'dbcon.php';
         <div id="container" class="registrasi">
             <p id="pesanError" class="errorMessage"></p>
             <form action="page09C_action.php" method="post" name="formTambahKomik" onSubmit="return validate06C()" enctype="multipart/form-data">
-                <label for="nomor">ID:</label>
-                <input type="text" id="nomor" name="nomor">
-                <span id="errorNomor" class="errorMessage"></span>
-
                 <label for="judul">Judul:</label>
                 <input type="text" id="judul" name="judul">
                 <span id="errorJudul" class="errorMessage"></span>

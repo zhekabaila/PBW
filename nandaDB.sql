@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 19, 2024 at 01:56 PM
+-- Generation Time: May 19, 2024 at 06:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,15 +34,6 @@ CREATE TABLE `komik` (
   `pratinjau` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `komik`
---
-
-INSERT INTO `komik` (`id`, `judul`, `sampul`, `pratinjau`) VALUES
-(5, 'Doraemon', 'Komik_Doraemon.jpg', 'https://gramedia.com/products/doraemon-10-edisi-baru'),
-(6, 'One Piece', 'Komik_Onepiece.jpg', 'https://www.gramedia.com/products/one-piece-100'),
-(13, 'Pelangi', 'Komik_Miiko.jpg', 'https://classroom.google.com/c/NjQ3MTMzMDk4MTQ4/a/Njc2OTk2NDMyMjcy/details');
-
 -- --------------------------------------------------------
 
 --
@@ -51,17 +42,9 @@ INSERT INTO `komik` (`id`, `judul`, `sampul`, `pratinjau`) VALUES
 
 CREATE TABLE `peminjam` (
   `id` int(11) NOT NULL,
-  `nama` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL
+  `nama` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `peminjam`
---
-
-INSERT INTO `peminjam` (`id`, `nama`, `email`) VALUES
-(9, 'Shafnanda Aulia Kamal', '222212878@stis.ac.id'),
-(10, 'Auleea', 'pipi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -70,6 +53,7 @@ INSERT INTO `peminjam` (`id`, `nama`, `email`) VALUES
 --
 
 CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -78,8 +62,8 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`username`, `password`) VALUES
-('nanda123', 'nanda#');
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'nanda123', '$2y$10$LF4xxZAPnoAwVkCv3RP7AeItcQU/sqqi04soa3RGpYp0JSPIKRkQ6');
 
 --
 -- Indexes for dumped tables
@@ -101,7 +85,8 @@ ALTER TABLE `peminjam`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`username`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -111,7 +96,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `komik`
 --
 ALTER TABLE `komik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+
+--
+-- AUTO_INCREMENT for table `peminjam`
+--
+ALTER TABLE `peminjam`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

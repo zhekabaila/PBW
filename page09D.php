@@ -63,9 +63,6 @@ include 'dbcon.php';
             <p style="color: grey;">Gunakan akun pendidikan anda</p>
             <br>
             <form action="page09D_action.php" method="post" name="formTambahPeminjam" onsubmit="return validate06D()">
-                <label for="id">ID:</label>
-                <input type="text" id="id" name="id">
-
                 <label for="nama">Nama:</label>
                 <input type="text" id="nama" name="nama">
 
